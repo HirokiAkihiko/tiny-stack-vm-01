@@ -1,9 +1,7 @@
 // Tiny stack machine interpreter written for the make.fun tiny-stack-vm bounty.
 // It walks each case folder, executes the bytecode program held there against
 // its input bytes, and records the produced bytes plus the final exit code.
-// Arithmetic wraps to signed 32 bits, division and remainder follow the ISA's
-// signed and unsigned variants, and every fault ends the run with its own
-// trap code while keeping whatever output was already produced.
+// Arithmetic wraps to signed 32 bits; every fault keeps prior output.
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
